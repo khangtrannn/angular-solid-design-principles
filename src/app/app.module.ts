@@ -8,7 +8,9 @@ import {MatIconModule} from '@angular/material/icon';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WidgetComponent } from './widget.componet';
+import { WidgetComponent } from './widget/widget.componet';
+import { WeatherContentComponent } from './widget/weather-content.component';
+import { VelocityContentComponent } from './widget/velocity-content.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { WidgetComponent } from './widget.componet';
     MatDividerModule,
     MatIconModule,
     WidgetComponent,
+    WeatherContentComponent,
+    VelocityContentComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

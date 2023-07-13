@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, Input } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { JsonExporterService } from './json-exporter.service';
+import { JsonExporterService } from '../json-exporter.service';
 
 @Component({
   selector: 'app-widget',
@@ -14,23 +14,7 @@ import { JsonExporterService } from './json-exporter.service';
       </button>
     </div>
     <mat-divider></mat-divider>
-
-    <ng-container *ngIf="widget === 'weather'">
-      <h5>Currently</h5>
-      <section class="weather-widget">
-        <mat-icon class="widget-icon">wb_sunny</mat-icon>
-        <div class="value">+25</div>
-      </section>
-    </ng-container>
-
-    <ng-container *ngIf="widget === 'velocity'">
-      <h5>Last sprint</h5>
-      <section class="weather-widget">
-        <mat-icon class="widget-icon">assessment</mat-icon>
-        <div class="value">Planned: <strong>25</strong></div>
-        <div class="value">Achieved: <strong>20</strong></div>
-      </section>
-    </ng-container>
+    <ng-content></ng-content>
   `,
   styles: [
     `
@@ -43,26 +27,11 @@ import { JsonExporterService } from './json-exporter.service';
         width: 400px;
         margin-left: 20px;
       }
-      .weather-widget {
-        display: block;
-        text-align: center;
-        position: relative;
-        min-width: 190px;
-      }
+
       .header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-      }
-      .widget-icon {
-        font-size: 64px;
-        width: 64px;
-        height: 64px;
-        color: orange;
-      }
-      .value {
-        font-size: 24px;
-        opacity: 0.7;
       }
     `,
   ],
