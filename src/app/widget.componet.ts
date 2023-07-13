@@ -1,4 +1,5 @@
-import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, inject, Input } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { JsonExporterService } from './json-exporter.service';
@@ -14,11 +15,22 @@ import { JsonExporterService } from './json-exporter.service';
     </div>
     <mat-divider></mat-divider>
 
-    <h5>Currently</h5>
-    <section class="weather-widget">
-      <mat-icon class="widget-icon">wb_sunny</mat-icon>
-      <div class="value">+25</div>
-    </section>
+    <ng-container *ngIf="widget === 'weather'">
+      <h5>Currently</h5>
+      <section class="weather-widget">
+        <mat-icon class="widget-icon">wb_sunny</mat-icon>
+        <div class="value">+25</div>
+      </section>
+    </ng-container>
+
+    <ng-container *ngIf="widget === 'velocity'">
+      <h5>Last sprint</h5>
+      <section class="weather-widget">
+        <mat-icon class="widget-icon">assessment</mat-icon>
+        <div class="value">Planned: <strong>25</strong></div>
+        <div class="value">Achieved: <strong>20</strong></div>
+      </section>
+    </ng-container>
   `,
   styles: [
     `
@@ -55,9 +67,11 @@ import { JsonExporterService } from './json-exporter.service';
     `,
   ],
   standalone: true,
-  imports: [MatDividerModule, MatIconModule],
+  imports: [MatDividerModule, MatIconModule, CommonModule],
 })
 export class WidgetComponent {
+  @Input() widget!: string;
+
   private jsonExportService = inject(JsonExporterService);
 
   onExportJson(): void {
