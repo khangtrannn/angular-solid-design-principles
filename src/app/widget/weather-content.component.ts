@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { WidgetContent } from './widget-content';
+import { Reloadable, WidgetContent } from './widget-content';
 
 @Component({
   selector: 'app-weather-content',
@@ -18,7 +18,7 @@ import { WidgetContent } from './widget-content';
     './widget-content.scss'
   ]
 })
-export class WeatherContentComponent implements WidgetContent {
+export class WeatherContentComponent implements WidgetContent, Reloadable {
   id: string = '';
   loading: boolean = false;
 

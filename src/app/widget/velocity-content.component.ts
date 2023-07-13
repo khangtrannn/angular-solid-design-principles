@@ -21,9 +21,4 @@ import { WidgetContent } from './widget-content';
 })
 export class VelocityContentComponent implements WidgetContent {
   id: string = '';
-  loading: boolean = false;
-
-  reload(): void {
-    console.log('...do polling...');
-  }
 }
