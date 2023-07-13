@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { WidgetContent } from './widget-content';
 
 @Component({
   selector: 'app-weather-content',
@@ -17,6 +18,11 @@ import { MatIconModule } from '@angular/material/icon';
     './widget-content.scss'
   ]
 })
-export class WeatherContentComponent {
+export class WeatherContentComponent implements WidgetContent {
+  id: string = '';
+  loading: boolean = false;
 
+  reload(): void {
+    console.log('...do polling...');
+  }
 }
