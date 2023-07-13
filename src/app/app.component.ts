@@ -8,13 +8,13 @@ import { Component } from '@angular/core';
     </mat-toolbar>
 
     <main class="content">
-      <app-widget>
+      <app-widget title="Weather">
         <app-weather-content></app-weather-content>
       </app-widget>
-      <app-widget>
+      <app-widget title="Velocity">
         <app-velocity-content></app-velocity-content>
       </app-widget>
-      <app-widget>
+      <app-widget title="Anything">
         <p>Content is comming...</p>
       </app-widget>
     </main>

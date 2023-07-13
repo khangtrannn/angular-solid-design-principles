@@ -9,3 +9,6 @@ Single responsibility
 Open/Closed Principle
 - Software entities should be open for extension, but closed for modification
 - It means that on the rife you should design your classes, modules, and even libraries such a way that you should extend it functionality wihtout touching the component
+
+Liskov Substitution Principle
+- Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it
